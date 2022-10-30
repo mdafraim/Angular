@@ -1,0 +1,32 @@
+.form-control.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
+body {
+    width: 100%;
+    height: 100%;
+    background-color: lightgray;
+}
+.container .row .col-4 {
+    width: 30%;
+    margin: 0 auto 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+label {
+    font-size: 16px;
+    color: black;
+    font-family: sans-serif;
+    padding-top: 10px;
+}
+.btn {
+    width: 100%;
+    margin-top: 10px;
+}
+#check {
+   padding: 5px;
+   text-align: center;
+
+}

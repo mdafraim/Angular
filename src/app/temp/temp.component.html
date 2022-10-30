@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xl-4 col-md-4 col-sm-12">
+            <form #Ragister="ngForm" (ngSubmit)="onRagister(Ragister.value)">
+                <div class="form-group">
+                    <label for="Fname">Full Name</label>
+                    <input ngModel name="Fname" #Fname="ngModel"
+                     type="text" id="Fname" class="form-control" required>
+                     <div class="alert alert-danger" *ngIf="Fname.touched && !Fname.valid">
+                        Please Enter Name...!!
+                     </div>
+                </div>
+                <div class="form-group">
+                    <label for="Email">Email</label>
+                    <input ngModel name="Email" #Email="ngModel" 
+                    type="text" id="Email" class="form-control" required>
+                    <div class="alert alert-danger" *ngIf="Email.touched && !Email.valid">
+                        Please Enter Email...!!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input ngModel name="username" #username="ngModel" 
+                    type="text" id="username" class="form-control" required>
+                    <div class="alert alert-danger" *ngIf="username.touched && !username.valid">
+                        Please Enter Username...!!
+                    </div>
+                </div>
+                
+                <input type="submit" class="btn btn-success" value="{{editUpdateMode ? 'Upated' : 'Ragister'}}" [disabled]="!Ragister.valid">
+            </form>
+        </div>
+        <div class="col-xl-8 col-md-8 col-sm-12">
+            <ng-container *ngIf="loader.length >= 0">
+                <table class="table table-light">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of loader,index as i">
+                            <td>{{i + 1}}</td>
+                            <td>{{item.Fname}}</td>
+                            <td>{{item.Email}}</td>
+                            <td>{{item.username}}</td>
+                            <td><button class="btn btn-primary" (click)="Display(item.id)">Edit</button></td>
+                            <td><button class="btn btn-danger" (click)="onDeleted(item.id)">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-success">Fetch Info</button>
+             </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+.container-fluid {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul {
+    list-style-type: none;
+    background-color: #ddd;
+    text-align:center;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    height: 70px;;
+}
+li {
+    display: inline-block;
+}
+a {
+    color: #009900;
+    font-size: 18px;
+    padding: 8px;
+    font-weight: bold;
+    line-height: 70px;
+    text-decoration: none;
+}
+
+

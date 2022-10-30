@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl-5 col-md-5 col-sm-12">
+      <form #important="ngForm" (ngSubmit)="Imp(important.value)">
+        <div class="form-group">
+          <label for="FirstName">First Name</label>
+          <input type="text" ngModel name="FirstName" #FirstName="ngModel" 
+          id="FirstName" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="LastName">Last Name</label>
+          <input type="text" ngModel name="LastName" #LastName="ngModel" 
+          id="LastName" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="Mobile">Mobile Number</label>
+          <input type="text" ngModel name="Mobile" #Mobile="ngModel" 
+          id="Mobile" class="form-control">
+        </div>
+        <input type="button" class="btn btn-success" value="Send Info">
+      </form>
+    </div>
+  </div>
+</div>

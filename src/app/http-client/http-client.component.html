@@ -1,0 +1,73 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-sm-12">
+                <form #postData="ngForm" (ngSubmit)="onPost(postData.value)">
+                    <div class="form group">
+                        <label for="title">Title</label>
+                        <input type="text" ngModel name="'title"
+                        #title="ngModel" id="title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Comment</label>
+                        <input type="text" ngModel name="comment" 
+                        #comment="ngModel" id="comment" class="form-control">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Send">
+                    <input type="button" class="btn btn-success ml-2" 
+                    value="Fetch Data" (click)="fetchData()">
+                </form>
+            </div>
+            <div class="col-xl-6 col-sm-12">
+                <form #login="ngForm" (ngSubmit)="onLog(login.value)">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input ngModel type="text" #username="ngModel" 
+                        name="username" id="username" class="form-control">
+                    </div>
+                    <div class="form-group"><label for="password">Password</label>
+                        <input ngModel type="password" #password="ngModel" 
+                        name="password" id="password" class="form-control">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Send Data">
+                    <input type="button" class="btn btn-success ml-2" value="FetchData"
+                    (click)="onTake()">
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <form #posts="ngForm" (ngSubmit)="onSend(posts.value)">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" ngModel name="title" #title="ngModel" id="title" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="content">Content</label>
+                        <input type="text" ngModel id="content" name="content" #content="ngModel" class="form-control">
+                    </div>
+                    <input type="submit" value="Post" class="btn btn-success">
+                    <input type="button"class="btn btn-primary ml-2" (click)="onReceive()" value="FetchInfo">
+                </form>
+            </div>
+            <div class="col-6">
+                <ng-container *ngIf="loadedPost.length > 0">
+                  <table class="table">
+                    <thead class="thead thead-dark">
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Content</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of loadedPost; index as i">
+                            <td>{{i + 1}}</td> 
+                            <td>{{item.title}}</td>
+                            <td>{{item.content}}</td>    
+                        </tr>
+                    </tbody>
+                  </table>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</body>

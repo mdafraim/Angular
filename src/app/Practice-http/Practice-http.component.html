@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl-4 col-md-4 col-sm-12">
+      <form #product="ngForm" (ngSubmit)="onOrder(product.value)">
+        <div class="form-group">
+          <label for="pName">Product Name</label>
+          <input ngModel name="pName" #pName="ngModel"
+           type="text" id="pName" class="form-control" required>
+           <div class="alert alert-danger" *ngIf="pName.touched && !pName.valid">
+            Please Enter Name...!!
+           </div>
+        </div>
+        <div class="form-group">
+          <label for="pDetail">Prouct Detail</label>
+          <input ngModel name="pDetail" #pDetail="ngModel"
+           type="text" id="pDetail" class="form-control" required>
+           <div class="alert alert-danger" *ngIf="pDetail.touched && !pDetail.valid">
+            Please Enter Product Description...!!
+           </div>
+        </div>
+          <div class="form-group">
+            <label for="pPrice">Price</label>
+            <input ngModel name="pPrice" #pPrice="ngModel"
+             type="text" id="pPrice" class="form-control" required>
+             <div class="alert alert-danger" *ngIf="pPrice.touched && !pPrice.valid">
+              Please Enter Product Price...!!
+             </div>
+          </div>
+          <input type="submit" class="btn btn-success" value="{{UpdateMode ? 'Update' : 'Order'}}" [disabled]="!product.valid">
+          <button class="btn btn-info ml-2" (click)="onReceive()">FetchInfo</button>
+      </form>
+    </div>
+    <div class="col-xl-8 col-md-8 col-sm-12">
+      <ng-container *ngIf="onLoad.length > 0">
+        <table class="table table-light">
+          <thead class="thead-dark">
+            <tr>
+              <th>#</th>
+              <th>Product Name</th>
+              <th>Product Detail</th>
+              <th>Product Price</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of onLoad; index as i">
+              <td>{{i + 1}}</td>
+              <td>{{item.pName}}</td>
+              <td>{{item.pDetail}}</td>
+              <td>{{item.pPrice}}</td>
+              <td><button class="btn btn-primary" (click)="onUpdate(item.id)">Edit</button></td>
+              <td><button class="btn btn-danger" (click)="onDeleteProduct(item.id)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+      <button class="btn btn-danger" (click)="onClear()">Clear-All</button>
+    </div>
+  </div>
+</div>

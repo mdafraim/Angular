@@ -1,0 +1,30 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <form [formGroup]="login">
+                    <div class="form-floating">
+                        <label for="username">Username</label>
+                        <input type="email" id="username" 
+                        formControlName="username" class="form-control">
+                        <div class="alert alert-danger" *ngIf="username.touched && username.invalid">
+                            Please Enter Username...!!
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" 
+                        formControlName="password" class="form-control">
+                        <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                            Please Enter Password...!!
+                        </div>
+                    </div>
+                <div id="check">
+                    <input type="checkbox" value="checked"> Remember Me
+                </div>
+                    <input type="submit" class="btn btn-md btn-primary" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

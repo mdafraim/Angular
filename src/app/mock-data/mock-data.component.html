@@ -1,0 +1,50 @@
+
+<div *ngIf="userData?.length > 1;then content else other_content">here is ignored</div>
+<ng-template #content>
+  <h3>Useer Detail</h3>
+<table class="table">
+  <thead>
+    <tr>
+      <th> Id</th>
+      <th>Name</th>
+      <th>User Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of userData">  
+      <td>{{item.id}}</td>
+      <td scope="row">{{item.name }}</td>
+      <td>{{item.username }}</td>
+      <td>{{item.email }}</td>
+      <td> 
+        <button class="btn btn-danger" (click)="delete(item?.id)">Del </button> 
+        <a class="btn btn-primary"  [routerLink]="'/mock-data/'  + item?.id">Edit
+        </a> 
+      </td>
+    </tr> 
+  </tbody>
+</table>
+</ng-template>
+<ng-template #other_content>
+  <h3>Selected  User Details</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th> Id</th>
+        <th>Name</th>
+        <th>User Name</th>
+        <th>Email</th> 
+      </tr>
+    </thead>
+    <tbody>
+      <tr>  
+        <td>{{userData.id}}</td>
+        <td scope="row">{{userData.name }}</td>
+        <td>{{userData.username }}</td>
+        <td>{{userData.email }}</td> 
+      </tr> 
+    </tbody>
+  </table> 
+</ng-template>
